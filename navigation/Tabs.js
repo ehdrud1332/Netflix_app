@@ -45,7 +45,7 @@ export default ({navigation, route}) => {
                 }
             })}
             tabBarOptions={{
-
+                // bottom tab의 icon 아래 보이는 이름 보이게 or 안보이게
                 showLabel: true,
                 style: {
                     backgroundColor: "black",
