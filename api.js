@@ -28,7 +28,7 @@ export const movieApi = {
     upcoming: () => getAnything("/movie/upcoming")
 };
 
-export const TvApi = {
+export const tvApi = {
     today: () => getAnything("/tv/airing_today"),
     thisWeek: () => getAnything("/tv/on_the_air"),
     topRated: () => getAnything("/tv/top_rated"),
