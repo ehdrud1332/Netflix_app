@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import { View, Text, Button} from 'react-native';
-import {movieApi} from "../api";
+import {movieApi} from "../../api";
+import MoviePresenter from './MoviePresenter';
 
 export default () => {
 
@@ -32,13 +32,6 @@ export default () => {
     }, [])
 
     return(
-        <View style={{flex:1, backgroundColor: 'black'}}>
-            <Text style={{color: 'white'}}>
-                {movies.nowPlaying?.length}
-            </Text>
-            <Text style={{color: 'white'}}>
-                popular Data is {movies.popular?.length}
-            </Text>
-        </View>
+        <MoviePresenter {...movies} />
     )
 };

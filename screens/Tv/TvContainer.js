@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react'
 import {View, Text} from 'react-native';
-import {tvApi} from '../api';
+import {tvApi} from '../../api';
 
 export default () => {
-
+    //초기값, 상태값 선언해주는 곳
+    //tv : 초기 상태값, setTv : 다시 설정하는 상태값
     const [tv, setTv] = useState({
         today: [],
         thisWeek: [],
@@ -31,7 +32,7 @@ export default () => {
             popularError
         })
     }
-
+    //라이프 사이클 선언해주는 곳, 무조건 실행되는 곳
     useEffect(() => {
         getData();
     }, [])
