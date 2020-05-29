@@ -33,6 +33,7 @@ export default ({loading, nowPlaying}) => (
                            backgroundImg={movie.backdrop_path}
                            id={movie.id}
                            title={movie.title}
+                           poster={movie.poster_path}
                         />
                     ))}
                 </Swiper>

@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import {Dimensions, Image} from 'react-native';
 import {apiImage} from "../../api"
 import PropTypes from 'prop-types';
-
-const {width: WIDTH, height: HEIGHT} = Dimensions.get("screen")
+import Poster from '../Poster'
+import {TouchableOpacity} from 'react-native';
 
 const Container = styled.View`
   width: 100%;
@@ -14,33 +13,50 @@ const Container = styled.View`
 const BG = styled.Image`
   height: 100%;
   width: 100%;
-  opacity: 0.6;
+  opacity: 0.4;
   position: absolute;
 `;
 
 const Content = styled.View`
   flex-direction: row;
+  height: 100%;
+  align-content: space-around;
 `;
 
 const Data = styled.View`
   width: 50%;
+  align-items: flex-start;
 `;
 
 const Title = styled.Text`
   color: white;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 19px;
+  margin-bottom: 10px;
 `;
 
 const Votes = styled.Text`
-  color: white;
-  opacity: 0.7;
+  color: rgb(220, 220, 220);
+  margin-bottom: 7px;
+  font-size: 12px; 
 `;
 
 const OverView = styled.Text`
-  color: white;
-  opacity: 0.7;
+  color: rgb(220, 220, 220);
+  font-size: 12px;
+  font-weight: 500;
 `;
+
+const Button = styled.View`
+  margin-bottom: 10px;
+  background-color: #e74c3c;
+  padding: 10px;
+  border-radius: 3px;
+`;
+
+const ButtonText = styled.Text`
+  color: white;
+`
 
 
 const Slide = ({id, title, backgroundImg, votes, overview}) => (
@@ -48,9 +64,14 @@ const Slide = ({id, title, backgroundImg, votes, overview}) => (
         <BG source={{uri : apiImage(backgroundImg)}} />
         <Content>
             <Data>
-                <Title>{title}</Title>
-                <Votes>{votes} / 10</Votes>
-                <OverView>{overview}</OverView>
+                <Title>{title.slice(0, 30)}</Title>
+                <Votes>⭐️{votes} / 10</Votes>
+                <OverView>{overview.slice(0,120)}...</OverView>
+                <TouchableOpacity>
+                    <Button>
+                        <ButtonText>View Details</ButtonText>
+                    </Button>
+                </TouchableOpacity>
             </Data>
 
         </Content>
@@ -62,7 +83,8 @@ Slide.propTypes = {
     title: PropTypes.string.isRequired,
     backgroundImg: PropTypes.string.isRequired,
     votes: PropTypes.number.isRequired,
-    overview: PropTypes.string.isRequired
+    overview: PropTypes.string.isRequired,
+    poster: PropTypes.string.isRequired
 };
 
 export default Slide;
