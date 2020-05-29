@@ -5,11 +5,13 @@ import {ActivityIndicator, ScrollView, Dimensions} from 'react-native';
 import Slide from '../../components/Movies/Slide';
 import Title from '../../components/Title';
 import Vertical from '../../components/Vertical';
+import Horizontal from "../../components/Horizontal";
+import {trimText} from "../../utils";
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get("window")
 
 const Container = styled.View`
-
+  
 `;
 
 const SliderContainer = styled.View`
@@ -18,8 +20,12 @@ const SliderContainer = styled.View`
   margin-bottom: 40px;
 `;
 
+const UpcomingContainer = styled.View`
+  margin-top: 20px;
+`;
 
-export default ({loading, nowPlaying, popular}) => (
+
+export default ({loading, nowPlaying, popular, upcoming}) => (
     <ScrollView
         style={{
             backgroundColor: 'black'
@@ -50,9 +56,15 @@ export default ({loading, nowPlaying, popular}) => (
                     </SliderContainer>
                     <Container>
                         <Title title={"Popular Movies"} />
-                        <ScrollView horizontal>
+                        <ScrollView
+                            style={{marginTop: 20}}
+                            contentContainerStyle={{paddingLeft: 30}}
+                            horizontal
+                            showsHorizontalScrollIndicator={false}
+                        >
                             {popular.map(movie => (
                                 <Vertical
+                                    id={movie.id}
                                     key={movie.id}
                                     votes={movie.vote_average}
                                     poster={movie.poster_path}
@@ -60,6 +72,18 @@ export default ({loading, nowPlaying, popular}) => (
                                 />
                             ))}
                         </ScrollView>
+                        <UpcomingContainer>
+                            <Title title={"Coming Soon"} />
+                            {upcoming.map(movie => (
+                                <Horizontal
+                                    key={movie.id}
+                                    poster={movie.poster_path}
+                                    id={movie.id}
+                                    title={movie.original_title}
+                                    overview={movie.overview}
+                                />
+                            ))}
+                        </UpcomingContainer>
                     </Container>
                 </>
             )}
