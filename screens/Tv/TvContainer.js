@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import {View, Text} from 'react-native';
 import {tvApi} from '../../api';
+import TvPresenter from "./TvPresenter";
 
 export default () => {
     //초기값, 상태값 선언해주는 곳
     //tv : 초기 상태값, setTv : 다시 설정하는 상태값
     const [tv, setTv] = useState({
+        loading: true,
         today: [],
         thisWeek: [],
         topRated: [],
@@ -22,6 +24,7 @@ export default () => {
         const [topRated, topRatedError] = await tvApi.topRated();
         const [popular, popularError] = await tvApi.popular();
         setTv({
+            loading: false,
             today,
             thisWeek,
             topRated,
