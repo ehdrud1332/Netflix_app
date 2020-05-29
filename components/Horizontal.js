@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import {TouchableOpacity} from 'react-native';
 import Poster from './Poster';
 import Votes from './votes';
-import {trimText} from '../utils'
+import {trimText, formDate} from '../utils'
 
 const Container = styled.View`
   padding: 0px 30px;;
@@ -41,7 +41,7 @@ const Horizontal = ({id, title, releaseDate, poster, overview}) => (
             <Poster url={poster} />
             <Data>
                 <Title>{trimText(title,30)}</Title>
-                {releaseDate ? <ReleaseDate>{releaseDate}</ReleaseDate> : null}
+                {releaseDate ? <ReleaseDate>{formDate(releaseDate)}</ReleaseDate> : null}
                 <OverView>{trimText(overview,120)}</OverView>
             </Data>
         </Container>
