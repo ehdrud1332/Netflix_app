@@ -34,3 +34,5 @@ export const tvApi = {
     topRated: () => getAnything("/tv/top_rated"),
     popular: () => getAnything("/tv/popular"),
 }
+
+export const apiImage = path => `https://image.tmdb.org/t/p/w500${path}`;
