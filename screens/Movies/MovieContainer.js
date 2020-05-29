@@ -5,6 +5,7 @@ import MoviePresenter from './MoviePresenter';
 export default () => {
 
     const [movies, setMovies] = useState({
+        loading: true,
         nowPlaying: [],
         popular: [],
         upcoming: [],
@@ -13,11 +14,12 @@ export default () => {
         upcomingError: null
     })
 
-    const getDate = async() => {
+    const getData = async() => {
         const [nowPlaying, nowPlayingError] = await movieApi.nowPlaying();
         const [popular, popularError] = await movieApi.popular();
         const [upcoming, upcomingError] = await movieApi.upcoming();
         setMovies({
+            loading: false,
             nowPlaying,
             popular,
             upcoming,
@@ -28,7 +30,7 @@ export default () => {
     }
 
     useEffect(() => {
-        getDate();
+        getData();
     }, [])
 
     return(
