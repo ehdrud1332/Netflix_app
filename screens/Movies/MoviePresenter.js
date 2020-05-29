@@ -8,6 +8,7 @@ import Vertical from '../../components/Vertical';
 import Horizontal from "../../components/Horizontal";
 import {trimText} from "../../utils";
 import ScrollContainer from "../../components/ScrollContainer";
+import HorizontalSlider from "../../components/HorizontalSlider";
 
 const {width: WIDTH, height: HEIGHT} = Dimensions.get("window")
 
@@ -46,13 +47,7 @@ export default ({loading, nowPlaying, popular, upcoming}) => (
                 </Swiper>
             </SliderContainer>
             <Container>
-                <Title title={"Popular Movies"} />
-                <ScrollView
-                    style={{marginTop: 20}}
-                    contentContainerStyle={{paddingLeft: 30}}
-                    horizontal
-                    showsHorizontalScrollIndicator={false}
-                >
+                <HorizontalSlider title={"Popular Movie"} >
                     {popular.map(movie => (
                         <Vertical
                             id={movie.id}
@@ -62,7 +57,7 @@ export default ({loading, nowPlaying, popular, upcoming}) => (
                             title={movie.original_title}
                         />
                     ))}
-                </ScrollView>
+                </HorizontalSlider>
                 <UpcomingContainer>
                     <Title title={"Coming Soon"} />
                     {upcoming.map(movie => (
@@ -70,7 +65,7 @@ export default ({loading, nowPlaying, popular, upcoming}) => (
                             key={movie.id}
                             poster={movie.poster_path}
                             id={movie.id}
-                            title={movie.original_title}
+                             title={movie.original_title}
                             overview={movie.overview}
                             releaseDate={movie.release_date}
                         />
