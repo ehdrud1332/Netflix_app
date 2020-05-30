@@ -9,7 +9,7 @@ import {trimText} from '../utils'
 
 const Container = styled.View`
   align-items: center;
-  margin-bottom: 20px;
+  margin-right: 20px;
 `;
 
 const Title = styled.Text`
@@ -17,6 +17,8 @@ const Title = styled.Text`
   font-weight: 500;
   margin: 10px 0px 5px 0px;
 `;
+
+
 
 const Vertical = ({id, poster, title, votes}) => (
     <TouchableOpacity>

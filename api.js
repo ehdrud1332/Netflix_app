@@ -14,6 +14,7 @@ const getAnything = async(path, params = {}) => {
     try{
         const {
             data: {results},
+            //배열
             data
         } = await makeRequest(path, params)
         return [results || data, null]

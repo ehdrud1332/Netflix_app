@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 
-class Search extends Component {
+class SearchContainer extends Component {
     render() {
         return(
             <View>
@@ -11,4 +11,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default SearchContainer;

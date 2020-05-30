@@ -6,7 +6,7 @@ const Container = styled.Text`
   color: rgb(220, 220, 220);
   margin-bottom: 7px;
   font-weight: 500;
-  font-size
+  font-size: 12px;
 `;
 
 
