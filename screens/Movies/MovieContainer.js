@@ -15,7 +15,7 @@ export default () => {
         upcomingError: null
     })
 
-    const getData = async() => {
+    const getData = async () => {
         const [nowPlaying, nowPlayingError] = await movieApi.nowPlaying();
         const [popular, popularError] = await movieApi.popular();
         const [upcoming, upcomingError] = await movieApi.upcoming();

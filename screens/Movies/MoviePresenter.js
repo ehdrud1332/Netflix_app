@@ -60,7 +60,7 @@ export default ({refreshFn, loading, nowPlaying, popular, upcoming}) => (
                             key={movie.id}
                             poster={movie.poster_path}
                             id={movie.id}
-                             title={movie.original_title}
+                            title={movie.title}
                             overview={movie.overview}
                             releaseDate={movie.release_date}
                         />

@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 
-class Detail extends Component {
-    render() {
-        return (
-            <View>
-                <Text>Detail</Text>
-            </View>
-        );
+export default ({
+    navigation,
+    route: {
+        params: {id, title}
     }
-}
+}) => {
+    navigation.setOptions({title})
 
-export default Detail;
+    return (
+        <View>
+            <Text>{id}</Text>
+        </View>
+    )
+}
