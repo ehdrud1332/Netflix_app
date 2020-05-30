@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
 import Input from '../../components/Input';
 import HorizontalSlider from "../../components/HorizontalSlider";
-import Horizontal from "../../components/Horizontal";
 import Vertical from '../../components/Vertical';
+import ScrollContainer from "../../components/ScrollContainer";
 
 
 
@@ -13,9 +13,11 @@ const Container = styled.ScrollView`
 `;
 
 const SearchPresenter = ({movies, tvs, keyword, onChange, onSubmit}) => (
-    <Container
+    <ScrollContainer
+        refreshFn={onSubmit}
+        loading={false}
         contentContainerStyle = {{
-            paddingTop:10
+            paddingTop: 10
         }}
     >
         <Input
@@ -51,7 +53,7 @@ const SearchPresenter = ({movies, tvs, keyword, onChange, onSubmit}) => (
                 ))}
             </HorizontalSlider>
         )}
-    </Container>
+    </ScrollContainer>
 );
 
 export default SearchPresenter;

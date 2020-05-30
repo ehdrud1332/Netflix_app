@@ -6,6 +6,7 @@ import TvPresenter from "./TvPresenter";
 export default () => {
     //초기값, 상태값 선언해주는 곳
     //tv : 초기 상태값, setTv : 다시 설정하는 상태값
+    const [refreshing, setRefreshing] = useState(false);
     const [tv, setTv] = useState({
         loading: true,
         today: [],
@@ -41,6 +42,6 @@ export default () => {
     }, [])
 
     return(
-        <TvPresenter {...tv} />
+        <TvPresenter refreshFn={getData} {...tv} />
     )
 }

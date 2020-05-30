@@ -10,7 +10,7 @@ const Container = styled.View`
   margin-top: 30px;
 `;
 
-const TvPresenter = ({loading, popular, topRated, today}) => (
+const TvPresenter = ({refreshFn, loading, popular, topRated, today}) => (
 
     <ScrollContainer loading={loading}>
         <HorizontalSlider title={"Popular Show"}>
