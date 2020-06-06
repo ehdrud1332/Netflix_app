@@ -1,15 +1,16 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
 import DetailPresenter from "./DetailPresenter";
-import {movieApi} from '../../api';
+import {movieApi, tvApi} from '../../api';
 
 
 export default ({
     navigation,
     route: {
-        params: {id, title, backgroundImage, poster, votes, overview}
+        params: {isTv, id, title, backgroundImage, poster, votes, overview}
     }
 }) => {
 
+    const [loading, setLoading] = useState(true);
     const [movie, setMovie] = useState({
         title,
         backgroundImage,
@@ -19,7 +20,12 @@ export default ({
     });
 
     const getData = async() => {
-        const [getMovie, getMovieError] = await movieApi.Detail(id);
+
+        if (isTv) {
+            const [getMovie, getMovieError] = await tvApi.Detail(id);
+        } else {
+            const [getMovie, getMovieError] = await movieApi.Detail(id);
+        }
         setMovie({
             ...getMovie,
             title: getMovie.title,
@@ -41,6 +47,6 @@ export default ({
     });
 
     return(
-        <DetailPresenter {...movie}/>
+        <DetailPresenter movie={movie} loading={loading}/>
     )
 };
