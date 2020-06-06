@@ -6,6 +6,7 @@ import {apiImage} from "../../api";
 import {Dimensions, ActivityIndicator} from 'react-native';
 import Poster from '../../components/Poster';
 import Votes from '../../components/votes';
+import {formDate} from '../../utils';
 
 const BG = styled.Image`
   width: 100%;
@@ -82,6 +83,22 @@ export default ({result, loading}) => (
                 )}
                 {loading && (
                     <ActivityIndicator style={{marginTop: 30}} color={"Wihte"} />
+                )}
+
+                {result.spoken_languages && (
+                    <>
+                        <DataName>Languages</DataName>
+                        <DataValue>
+                            {result.spoken_languages.map(l => `${l.name}`)}
+                        </DataValue>
+                    </>
+                )}
+
+                {result.release_date && (
+                    <>
+                        <DataName>ReleaseDate</DataName>
+                        <DataValue>{formDate(result.release_date)}</DataValue>
+                    </>
                 )}
             </Data>
         </>
