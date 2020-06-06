@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useLayoutEffect} from 'react';
+import * as WebBrowser from 'expo-web-browser';
 import DetailPresenter from "./DetailPresenter";
 import {movieApi, tvApi} from '../../api';
-import {get} from "react-native/Libraries/TurboModule/TurboModuleRegistry";
+
 
 
 export default ({
@@ -74,7 +75,11 @@ export default ({
         navigation.setOptions({title});
     });
 
+    const openBrowser = async url => {
+        await WebBrowser.openBrowserAsync(url);
+    }
+
     return(
-        <DetailPresenter {...detail}/>
+        <DetailPresenter openBrowser={openBrowser} {...detail}/>
     )
 };

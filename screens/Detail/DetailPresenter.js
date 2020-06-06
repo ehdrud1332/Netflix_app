@@ -7,6 +7,8 @@ import {Dimensions, ActivityIndicator} from 'react-native';
 import Poster from '../../components/Poster';
 import Votes from '../../components/votes';
 import {formDate} from '../../utils';
+import {TouchableOpacity} from 'react-native-gesture-handler';
+import Link from '../../components/Link';
 
 const BG = styled.Image`
   width: 100%;
@@ -59,7 +61,7 @@ const DataName = styled.Text`
   margin-bottom: 15px;
 `;
 
-export default ({result, loading}) => (
+export default ({openBrowser, result, loading}) => (
 
 
     <ScrollContainer
@@ -121,8 +123,8 @@ export default ({result, loading}) => (
 
                 {result.first_air_date && (
                     <>
-                        <DataName>First Aire Date</DataName>
-                        <DataValue>{result.fits_air_date}</DataValue>
+                        <DataName>First Air Date</DataName>
+                        <DataValue>{result.first_air_date}</DataValue>
                     </>
                 )}
 
@@ -145,6 +147,18 @@ export default ({result, loading}) => (
                         </DataValue>
                     </>
                 )}
+
+                {result.imdb_id && (
+                    <Link
+                        text={"IMDB Page"}
+                        icon={"imdb"}
+                        onPress={() =>
+                            openBrowser(`https://www.imdb.com/title/${result.imdb_id}`)
+                        }
+                    />
+                )}
+
+
             </Data>
         </>
     </ScrollContainer>
