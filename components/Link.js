@@ -6,11 +6,12 @@ import styled from 'styled-components/native';
 const Container = styled.View`
   flex-direction: row;
   align-items: center;
+  margin-bottom: 5px;
 `;
 
 const Text = styled.Text`
   font-weight: 600;
-  margin-right: 10px;
+  margin-left: 10px;
   color: white;
 `;
 
@@ -18,8 +19,8 @@ const Text = styled.Text`
 const Link = ({onPress, text, icon}) => (
     <TouchableOpacity onPress={onPress}>
         <Container>
-            <Text>{text}</Text>
             <FontAwesome name={icon} color="white" size={22} />
+            <Text>{text}</Text>
         </Container>
     </TouchableOpacity>
 );

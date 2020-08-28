@@ -20,7 +20,10 @@ export default ({
             backgroundImage,
             poster,
             votes,
-            overview
+            overview,
+            videos: {
+                results: []
+            }
         }
     });
     // const [movie, setMovie] = useState({

@@ -3,7 +3,7 @@ import {Text, Image, View} from 'react-native';
 import {AppLoading} from 'expo';
 import {Asset} from 'expo-asset';
 import *as Font from 'expo-font';
-import {Ionicons} from '@expo/vector-icons';
+import {Ionicons, FontAwesome} from '@expo/vector-icons';
 import {NavigationContainer} from '@react-navigation/native';
 import Stack from './navigation/Stack';
 
@@ -17,7 +17,7 @@ const cacheImages = images =>
     });
 
 const cacheFonts = fonts =>
-    fonts.map(font => [Font.loadAsync(font)]);
+    fonts.map(font => [Font.loadAsync(font), FontAwesome.font]);
 
 export default function () {
 
@@ -47,3 +47,14 @@ export default function () {
     )
 
 }
+
+
+// const App = () => {
+//     return (
+//         <NavigationContainer>
+//             <Stack />
+//         </NavigationContainer>
+//     );
+// };
+
+// export default App;
