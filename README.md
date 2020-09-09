@@ -8,3 +8,5 @@
 
 ### 완성 화면
 ----------
+<img src="https://user-images.githubusercontent.com/60862525/92620203-5a120700-f2fd-11ea-9deb-db122ecf5854.gif" width="30%">
+
