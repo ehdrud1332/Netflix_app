@@ -10,51 +10,103 @@ const ITEM_SIZE = Platform.OS === 'ios' ? width * 0.72 : width * 0.74;
 const SPACING = 10;
 const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2;
 
-const Backdrop = ({movies, scrollX}) => {
+// const Backdrop = ({movies, scrollX}) => {
+//     return (
+//         <View style={{height: BACKDROP_HEIGHT, width, position: 'absolute'}}>
+//             <FlatList
+//                 data={movies.reverse()}
+//                 keyExtractor={(item) => item.key + '-backdrop'}
+//                 removeClippedSubviews={false}
+//                 contentContainerStyle={{width, height: BACKDROP_HEIGHT}}
+//                 renderItem={({item, index}) => {
+//                     if (!item.backdrop) {
+//                         return null;
+//                     }
+//                     const translateX = scrollX.interpolate({
+//                         inputRange: [(index - 2) * ITEM_SIZE, (index -1) * ITEM_SIZE],
+//                         outputRange: [0, width]
+//                     });
+//                     return (
+//                         <Animated.View
+//                             removeClippedSubviews={false}
+//                             style={{
+//                                 position: 'absolute',
+//                                 width: translateX,
+//                                 height,
+//                                 overflow: "hidden"
+//                             }}
+//                         >
+//                             <Image
+//                                source={{apiImage}}
+//                                style={{
+//                                    width,
+//                                    height: BACKDROP_HEIGHT,
+//                                    position: 'absolute'
+//                                }}
+//                             />
+//                         </Animated.View>
+//                     )
+//                 }}
+//             />
+//             <LinearGradient
+//                 colors={['rgba(0, 0, 0, 0)', 'wihte']}
+//                 style={{
+//                     height: BACKDROP_HEIGHT,
+//                     width,
+//                     position: 'absolute',
+//                     bottom: 0
+//                 }}
+//             />
+//         </View>
+//     );
+// };
+
+const Backdrop = ({ movies, scrollX }) => {
     return (
-        <View style={{height: BACKDROP_HEIGHT, width, position: 'absolute'}}>
+        <View style={{ height: BACKDROP_HEIGHT, width, position: 'absolute' }}>
             <FlatList
                 data={movies.reverse()}
                 keyExtractor={(item) => item.key + '-backdrop'}
                 removeClippedSubviews={false}
-                contentContainerStyle={{width, height: BACKDROP_HEIGHT}}
-                renderItem={({item, index}) => {
+                contentContainerStyle={{ width, height: BACKDROP_HEIGHT }}
+                renderItem={({ item, index }) => {
                     if (!item.backdrop) {
                         return null;
                     }
                     const translateX = scrollX.interpolate({
-                        inputRange: [(index - 2) * ITEM_SIZE, (index -1) * ITEM_SIZE],
-                        outputRange: [0, width]
+                        inputRange: [(index - 2) * ITEM_SIZE, (index - 1) * ITEM_SIZE],
+                        outputRange: [0, width],
+                        // extrapolate:'clamp'
                     });
                     return (
                         <Animated.View
-                            removeClippedSubviews={fasle}
+                            removeClippedSubviews={false}
                             style={{
                                 position: 'absolute',
                                 width: translateX,
                                 height,
-                                overflow: "hidden"
+                                overflow: 'hidden',
                             }}
                         >
                             <Image
-                               source={{apiImage.backdrop}}
-                               style={{
-                                   width,
-                                   height: BACKDROP_HEIGHT,
-                                   position: 'absolute'
-                               }}
+                                source={{ uri: item.backdrop }}
+                                style={{
+                                    width,
+                                    height: BACKDROP_HEIGHT,
+                                    position: 'absolute',
+                                }}
                             />
                         </Animated.View>
-                    )
+                    );
                 }}
             />
             <LinearGradient
-                colors={['rgba(0, 0, 0, 0)', 'wihte']}
+                colors={['rgba(0, 0, 0, 0)', 'white']}
                 style={{
                     height: BACKDROP_HEIGHT,
                     width,
                     position: 'absolute',
-                    bottom: 0
+                    bottom: 0,
                 }}
             />
         </View>
