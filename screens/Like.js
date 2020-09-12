@@ -1,14 +1,27 @@
-import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import React from 'react';
+import {
+    View,
+    Text,
+    StyleSheet,
+    FlatList,
+    Image,
+    Dimensions,
+    Animated,
+    TouchableOpacity,
+    Platform
+} from 'react-native';
+import {movieApi} from '../api';
+import {LinearGradient} from 'expo-linear-gradient';
+import Loader from '../components/Loader';
 
-class Like extends Component {
-    render() {
-        return(
-            <View>
-                <Text>Like</Text>
-            </View>
-        );
-    }
-}
 
-export default Like;
+
+export default () => {
+    return (
+        <View>
+            <Text>11234</Text>
+        </View>
+    );
+};
+
+
