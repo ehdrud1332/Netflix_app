@@ -1,5 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
+import {StatusBar} from 'react-native';
 import Detail from '../screens/Detail';
 import Tabs from './Tabs';
 

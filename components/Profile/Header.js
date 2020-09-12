@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {Ionicons, Entypo} from '@expo/vector-icons';
 import {LinearGradient} from 'expo-linear-gradient';
 import {gs, colors} from '../../styles';
-import {Ionicons} from '@expo/vector-icons';
 
 
 class Header extends Component {
@@ -17,10 +17,14 @@ class Header extends Component {
                 <View style={{marginHorizontal: 32, paddingVertical: 64}}>
                     <View style={styles.imageContainer}>
                         <View>
-                            <View style={styles.check}>
-                            </View>
+                            {/*<View style={styles.check}>*/}
+                            {/*    <Entypo*/}
+                            {/*        name="plus"*/}
+                            {/*        size={24}*/}
+                            {/*    />*/}
+                            {/*</View>*/}
                             <Image
-                                source={require('../../assets/source1.jpg')}
+                                source={require('../../assets/source2png.png')}
                                 style={{width: 150, height: 150, borderRadius: 75}}
                             />
                         </View>

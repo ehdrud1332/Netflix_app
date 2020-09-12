@@ -1,7 +1,6 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import {colors, gs} from '../../styles';
-import {Ionicons} from '@expo/vector-icons';
 
 const About = () => {
     return (

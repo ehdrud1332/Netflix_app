@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import Title from './Title';
 
 const Container = styled.View`
-  margin-top: 20px;
+  margin-top: -5px;
 `;
 
 const List = ({title, children}) => (

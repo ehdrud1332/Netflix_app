@@ -7,7 +7,7 @@ const HorizontalSlider = ({title, children}) => (
     <View>
         <Title title={title} />
         <ScrollView
-            style={{marginTop:20, marginBottom:40}}
+            style={{marginTop:-5, marginBottom:40}}
             contentContainerStyle={{paddingLeft: 30}}
             horizontal
             showsHorizontalScrollIndicator={false}

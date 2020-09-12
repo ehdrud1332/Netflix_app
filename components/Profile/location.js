@@ -7,7 +7,7 @@ const Location = () => {
         <View style={styles.container}>
             <View style={{width: 75, height: 75}}>
                 <Image
-                    source={require('../../assets/source2.png')}
+                    source={require('../../assets/source.png')}
                     style={{flex: 1, width: 35, marginLeft: 25}}
                     resizeMode="center"
                 />

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, Image, View} from 'react-native';
+import {Image, StatusBar} from 'react-native';
 import {AppLoading} from 'expo';
 import {Asset} from 'expo-asset';
 import *as Font from 'expo-font';
@@ -9,11 +9,11 @@ import Stack from './navigation/Stack';
 
 const cacheImages = images =>
     images.map(image => {
-        if(typeof image === 'string') {
-            return Image.prefetch(image);
-        } else {
-            return Asset.fromModule(image).downloadAsync();
-        }
+      if(typeof image === 'string') {
+        return Image.prefetch(image);
+      } else {
+        return Asset.fromModule(image).downloadAsync();
+      }
     });
 
 const cacheFonts = fonts =>
@@ -21,40 +21,30 @@ const cacheFonts = fonts =>
 
 export default function () {
 
-    const [isReady, setIsReady] = useState(false);
-    const loadAssets = async() => {
-        const images = cacheImages([
-            "https://images.unsplash.com/photo-1571847140471-1d7766e825ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=673&q=80",
-            require("./assets/splash.png")
-        ]);
-        console.log(images);
-        const fonts = cacheFonts([Ionicons.font]);
-        return Promise.all([...images, ...fonts]);
-    }
-    const onFinish = () => setIsReady(true);
+  const [isReady, setIsReady] = useState(false);
+  const loadAssets = async() => {
+    const images = cacheImages([
+      "https://images.unsplash.com/photo-1571847140471-1d7766e825ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=673&q=80",
+      require("./assets/splash.png")
+    ]);
+    console.log(images);
+    const fonts = cacheFonts([Ionicons.font]);
+    return Promise.all([...images, ...fonts]);
+  }
+  const onFinish = () => setIsReady(true);
 
-    return isReady ? (
-        <NavigationContainer>
-            <Stack />
-        </NavigationContainer>
-    ) : (
-        <AppLoading
-            startAsync={loadAssets}
-            onFinish={onFinish}
-            onError={console.log}
+  return isReady ? (
+      <NavigationContainer>
+        <StatusBar barStyle="light-content"/>
+        <Stack />
+      </NavigationContainer>
+  ) : (
+      <AppLoading
+          startAsync={loadAssets}
+          onFinish={onFinish}
+          onError={console.log}
 
-        />
-    )
+      />
+  )
 
 }
-
-
-// const App = () => {
-//     return (
-//         <NavigationContainer>
-//             <Stack />
-//         </NavigationContainer>
-//     );
-// };
-
-// export default App;
