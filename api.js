@@ -38,7 +38,8 @@ export const tvApi = {
     topRated: () => getAnything("/tv/top_rated"),
     popular: () => getAnything("/tv/popular"),
     search: query => getAnything("/search/tv",{query}),
-    Detail: id => getAnything(`/tv/${id}`, {append_to_response: "videos"})
+    Detail: id => getAnything(`/tv/${id}`, {append_to_response: "videos"}),
+    Similar: id => getAnything(`tv/${id}/similar`)
 }
 
 

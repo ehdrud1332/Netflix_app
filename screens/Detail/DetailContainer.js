@@ -40,6 +40,7 @@ export default ({
             ? await tvApi.Detail(id)
             : await movieApi.Detail(id)
 
+        // console.log("----------------------", await tvApi.Similar(id))
         setDetail({
             loading: false,
             result: {
