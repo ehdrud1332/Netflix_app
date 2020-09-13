@@ -9,11 +9,12 @@ import Stats from "../../components/Profile/stats";
 import Location from "../../components/Profile/location";
 import Movies from '../../components/Profile/Movies';
 
-const ProfilePresenter = () => {
-    return (
-        <ScrollView style={{
-            backgroundColor: colors.darkBg
-        }}>
+
+const ProfilePresenter = () => (
+
+        <ScrollView
+            style={{backgroundColor: 'black'}}
+        >
             <Header />
             <Stats />
             <About />
@@ -22,6 +23,6 @@ const ProfilePresenter = () => {
         </ScrollView>
 
     );
-};
+
 
 export default ProfilePresenter;

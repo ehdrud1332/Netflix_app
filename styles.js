@@ -16,12 +16,12 @@ export const gs = StyleSheet.create({
         paddingVertical: 24,
         paddingHorizontal: 32,
         marginBottom: 8,
-        backgroundColor: colors.lightBg
+        backgroundColor: 'black'
     },
     sectionTitle: {
         fontWeight: "700",
         color: colors.text,
-        fontSize: 15
+        fontSize: 19
     },
     rowCenter: {
         flexDirection: "row",

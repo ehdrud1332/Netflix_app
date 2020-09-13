@@ -29,6 +29,7 @@ export default ({navigation}) => {
 
     const [movies, setMovies] = useState([]);
     const scrollX = useRef(new Animated.Value(0)).current;
+
     useEffect(() => {
         const fetchData = async () => {
             const movies = await getMovies();
@@ -44,52 +45,6 @@ export default ({navigation}) => {
         }
     }, [movies]);
 
-    // const [movies, setMovies] = useState({
-    //     loading: true,
-    //     popular: [],
-    //     popularError: null,
-    // })
-    // const scrollX = useRef(new Animated.Value(0)).current;
-    //
-    // const getData = async () => {
-    //
-    //     const [popular, popularError] = await movieApi.popular();
-    //
-    //     setMovies({
-    //         loading: false,
-    //         popular,
-    //         popularError
-    //
-    //     })
-    //
-    //     console.log(popular.title)
-    // }
-    //
-    // useEffect(() => {
-    //     getData();
-    // }, [])
-
-
-
-    // const [movies, setMovies] = useState([]);
-
-
-    // useEffect(() => {
-    //
-    //     const fetchData = async() => {
-    //
-    //         const movies = await movieApi.popular()
-    //         setMovies([{key: 'empty-left'}, ...movies, {key: 'empty-right'}]);
-    //
-    //     }
-    //
-    //     if (movies.length === 0) {
-    //         fetchData(movies);
-    //         console.log("-------------------", movies)
-    //     }
-    //
-    // }, [movies]);
-
     return (
         <View style={styles.container}>
             <Backdrop movies={movies} scrollX={scrollX}/>
@@ -99,39 +54,13 @@ export default ({navigation}) => {
                     name="search"
                     size={23}
                     style={{
+                        color: 'black',
                         marginLeft: 340,
                         marginTop: 25
                     }}
                 />
             </TouchableOpacity>
             <Animated.FlatList
-                // showsHorizontalScrollIndicator={false}
-                // data={movies.popular}
-                // keyExtractor={(item) => item.key}
-                // horizontal
-                // bounces={false}
-                // decelerationRate={Platform.OS === 'ios' ? 0 : 0.98}
-                // renderToHardwareTextureAndroid
-                // contentContainerStyle={{alignItems: 'center'}}
-                // snapToInterval={ITEM_SIZE}
-                // snapToAlignment='start'
-                //
-                // renderItem={({item, index}) => {
-                //     if(!item.poster) {
-                //         return <View style={{width: EMPTY_ITEM_SIZE}}/>
-                //     }
-                //
-                //     const inputRange = [
-                //         (index - 2) * ITEM_SIZE,
-                //         (index - 1) * ITEM_SIZE,
-                //         index * ITEM_SIZE,
-                //     ];
-                //
-                //     const translateY = scrollX.interpolate({
-                //         inputRange,
-                //         outputRange: [100, 50, 100],
-                //         extrapolate: 'clamp',
-                //     });
                 showsHorizontalScrollIndicator={false}
                 data={movies}
                 keyExtractor={(item) => item.key}

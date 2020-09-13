@@ -28,7 +28,7 @@ export default ({refreshFn, loading, nowPlaying, popular, upcoming}) => (
     <ScrollContainer refreshFn={refreshFn} loading={loading}>
         <>
             <SliderContainer>
-                <Swiper controlsEnabled={false} loop timeout={3}>
+                <Swiper controlsEnabled={false} loop timeout={4}>
                     {nowPlaying.map(movie => (
                         <Slide
                             key={movie.id}

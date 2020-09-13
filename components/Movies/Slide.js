@@ -50,6 +50,7 @@ const OverView = styled.Text`
 `;
 
 const Button = styled.View`
+  margin-top: 10px;
   margin-bottom: 10px;
   background-color: #e74c3c;
   padding: 7px 10px;
