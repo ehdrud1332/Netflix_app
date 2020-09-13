@@ -12,11 +12,7 @@
 ## 완성 화면 레이아웃
 ----------
 
-<img src="https://user-images.githubusercontent.com/60862525/93017481-13295780-f604-11ea-9e35-c636c423d938.png" width="25%">
-<img src="https://user-images.githubusercontent.com/60862525/93017499-348a4380-f604-11ea-9c9b-dd732dbf6c5c.png" width="25%">
-<img src="https://user-images.githubusercontent.com/60862525/93017509-479d1380-f604-11ea-86e2-98478747952e.png" width="25%">
-<img src="https://user-images.githubusercontent.com/60862525/93017514-54ba0280-f604-11ea-8075-036d7652d467.png" width="25%">
-<img src="https://user-images.githubusercontent.com/60862525/93017525-63a0b500-f604-11ea-929b-ac85b608af09.png" width="25%">
+<img src="https://user-images.githubusercontent.com/60862525/93017481-13295780-f604-11ea-9e35-c636c423d938.png" width="25%"><img src="https://user-images.githubusercontent.com/60862525/93017499-348a4380-f604-11ea-9c9b-dd732dbf6c5c.png" width="25%"><img src="https://user-images.githubusercontent.com/60862525/93017509-479d1380-f604-11ea-86e2-98478747952e.png" width="25%"><img src="https://user-images.githubusercontent.com/60862525/93017514-54ba0280-f604-11ea-8075-036d7652d467.png" width="25%"><img src="https://user-images.githubusercontent.com/60862525/93017525-63a0b500-f604-11ea-929b-ac85b608af09.png" width="25%">
 
 ## 활용한 기술
 ----------
