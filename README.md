@@ -1,6 +1,6 @@
 ## 주요기능
 ----------
-* api연동 및 받아온 정보 뿌려주기
+* API 연동 및 받아온 정보 뿌려주기
 * 인기영화, 상영영화, 영화세부내용 etc. 구현
 * Movie, TV Show 메인화면 구현 (Popular, ComingSoon, Top Rated 영역)
 * 검색페이지 구현, 검색 후 Movie, Tv Results 키워드 서칭에 맞게 결과 출력
@@ -8,6 +8,8 @@
 
 ## 완성 화면
 ----------
+
+<img src="https://user-images.githubusercontent.com/60862525/93018941-9e0f4f80-f60e-11ea-927f-c35eae0f1ef9.gif" width="25%"><img src="https://user-images.githubusercontent.com/60862525/93018952-b7b09700-f60e-11ea-8e56-6502bb20873e.gif" width="25%"><img src="https://user-images.githubusercontent.com/60862525/93018961-ceef8480-f60e-11ea-9557-d4d6eda6cc4a.gif" width="25%"><img src="https://user-images.githubusercontent.com/60862525/93018963-d31ba200-f60e-11ea-8674-c3d70e53909a.gif" width="25%"> 
 
 ## 완성 화면 레이아웃
 ----------
