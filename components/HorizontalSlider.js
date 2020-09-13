@@ -2,6 +2,8 @@ import React from 'react';
 import Title from './Title';
 import {ScrollView, View} from 'react-native';
 import PropTypes from 'prop-types';
+import styled from 'styled-components/native';
+
 
 const HorizontalSlider = ({title, children}) => (
     <View>

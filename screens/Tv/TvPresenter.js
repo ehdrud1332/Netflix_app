@@ -6,13 +6,17 @@ import Horizontal from '../../components/Horizontal';
 import styled from 'styled-components/native';
 import List from '../../components/List';
 
+import {StatusBar} from 'react-native';
+
 const Container = styled.View`
-  margin-top: 30px;
+  margin-top: 40px;
 `;
 
 const TvPresenter = ({refreshFn, loading, popular, topRated, today}) => (
 
     <ScrollContainer loading={loading}>
+        <StatusBar barStyle="light-content"/>
+        <Container/>
         <HorizontalSlider title={"Popular Show"}>
             {popular.map(tv => (
                 <Vertical

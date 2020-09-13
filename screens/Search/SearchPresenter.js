@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {StatusBar} from 'react-native';
 import styled from 'styled-components/native';
 import Input from '../../components/Input';
 import HorizontalSlider from "../../components/HorizontalSlider";
 import Vertical from '../../components/Vertical';
 import ScrollContainer from "../../components/ScrollContainer";
 
-
-
 const Container = styled.ScrollView`
-  background-color: black;
+  margin-top: 30px;
 `;
+
 
 const SearchPresenter = ({movies, tvs, keyword, onChange, onSubmit}) => (
     <ScrollContainer
@@ -20,6 +20,8 @@ const SearchPresenter = ({movies, tvs, keyword, onChange, onSubmit}) => (
             paddingTop: 10
         }}
     >
+        <StatusBar barStyle="light-content"/>
+        <Container/>
         <Input
             placeholder={"Write a Keyword"}
             value={keyword}

@@ -12,18 +12,20 @@ import {
     StatusBar
 } from 'react-native';
 import {LinearGradient} from 'expo-linear-gradient';
+import {Feather} from '@expo/vector-icons';
 import Loader from '../components/Loader';
 import Backdrop from "../components/Backdrop";
 import {getMovies} from '../popularApi';
 import Genres from '../components/Genres';
 import Rating from "../components/Rating";
+import Search from '../screens/Search';
 
 const {width, height} = Dimensions.get('window');
 const ITEM_SIZE = Platform.OS === 'ios' ? width * 0.72 : width * 0.74;
 const EMPTY_ITEM_SIZE = (width - ITEM_SIZE) / 2;
 const SPACING = 10;
 
-export default () => {
+export default ({navigation}) => {
 
     const [movies, setMovies] = useState([]);
     const scrollX = useRef(new Animated.Value(0)).current;
@@ -91,7 +93,17 @@ export default () => {
     return (
         <View style={styles.container}>
             <Backdrop movies={movies} scrollX={scrollX}/>
-            <StatusBar hidden />
+            <StatusBar barStyle="dark-content"/>
+            <TouchableOpacity onPress={() => navigation.navigate("Search")}>
+                <Feather
+                    name="search"
+                    size={23}
+                    style={{
+                        marginLeft: 340,
+                        marginTop: 25
+                    }}
+                />
+            </TouchableOpacity>
             <Animated.FlatList
                 // showsHorizontalScrollIndicator={false}
                 // data={movies.popular}
@@ -154,6 +166,7 @@ export default () => {
 
                     return (
                         <View style={{width: ITEM_SIZE}}>
+
                             <Animated.View
                                 style={{
                                     marginHorizontal: SPACING,

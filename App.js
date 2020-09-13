@@ -34,10 +34,9 @@ export default function () {
   const onFinish = () => setIsReady(true);
 
   return isReady ? (
-      <NavigationContainer>
-        <StatusBar barStyle="light-content"/>
+    <NavigationContainer>
         <Stack />
-      </NavigationContainer>
+    </NavigationContainer>
   ) : (
       <AppLoading
           startAsync={loadAssets}

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import styled from 'styled-components/native';
+import {Feather, Ionicons} from '@expo/vector-icons';
 import ScrollContainer from "../../components/ScrollContainer";
 import {apiImage} from "../../api";
 import {Dimensions, ActivityIndicator} from 'react-native';
@@ -61,7 +62,7 @@ const DataName = styled.Text`
   margin-bottom: 15px;
 `;
 
-export default ({openBrowser, result, loading}) => (
+export default ({openBrowser, result, loading, navigation}) => (
 
 
     <ScrollContainer
@@ -69,7 +70,6 @@ export default ({openBrowser, result, loading}) => (
         contentContainerStyle={{ paddingBottom: 80}}
 
     >
-        <>
             <Header>
                 <BG source={{uri: apiImage(result.backgroundImage, "-")}} />
                 <Container>
@@ -183,7 +183,6 @@ export default ({openBrowser, result, loading}) => (
 
 
             </Data>
-        </>
     </ScrollContainer>
 
-)
+);
