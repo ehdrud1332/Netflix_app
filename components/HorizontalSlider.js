@@ -2,14 +2,13 @@ import React from 'react';
 import Title from './Title';
 import {ScrollView, View} from 'react-native';
 import PropTypes from 'prop-types';
-import styled from 'styled-components/native';
 
 
 const HorizontalSlider = ({title, children}) => (
     <View>
         <Title title={title} />
         <ScrollView
-            style={{marginTop:-5, marginBottom:40}}
+            style={{marginTop:-5, marginBottom:0}}
             contentContainerStyle={{paddingLeft: 30}}
             horizontal
             showsHorizontalScrollIndicator={false}

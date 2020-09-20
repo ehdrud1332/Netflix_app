@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Image, StatusBar} from 'react-native';
+import {Image, Clipboard} from 'react-native';
 import {AppLoading} from 'expo';
 import {Asset} from 'expo-asset';
 import *as Font from 'expo-font';
@@ -20,6 +20,10 @@ const cacheFonts = fonts =>
     fonts.map(font => [Font.loadAsync(font), FontAwesome.font]);
 
 export default function () {
+
+    if (__DEV__) {
+        Clipboard.setString('')
+    }
 
   const [isReady, setIsReady] = useState(false);
   const loadAssets = async() => {

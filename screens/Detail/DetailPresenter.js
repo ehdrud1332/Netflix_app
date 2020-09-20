@@ -1,14 +1,14 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, StyleSheet} from 'react-native';
 import styled from 'styled-components/native';
-import {Feather, Ionicons} from '@expo/vector-icons';
 import ScrollContainer from "../../components/ScrollContainer";
 import {apiImage} from "../../api";
 import {Dimensions, ActivityIndicator} from 'react-native';
 import Poster from '../../components/Poster';
 import Votes from '../../components/votes';
+import HorizontalSlider from "../../components/HorizontalSlider";
+import SimilarPoster from "../../components/Detail/SimilarPoster";
 import {formDate} from '../../utils';
-import {TouchableOpacity} from 'react-native-gesture-handler';
 import Link from '../../components/Link';
 
 const BG = styled.Image`
@@ -59,10 +59,15 @@ const DataName = styled.Text`
   color: white;
   opacity: 0.8;
   font-weight: 800;
-  margin-bottom: 15px;
+  margin-bottom: 13px;
+  font-size: 17px;
 `;
 
-export default ({openBrowser, result, loading, navigation}) => (
+const KeywordText = styled.Text`
+  color: white;
+`;
+
+export default ({openBrowser, result, loading}) => (
 
 
     <ScrollContainer
@@ -84,11 +89,11 @@ export default ({openBrowser, result, loading, navigation}) => (
                 {result.overview  ? (
                     <>
                         <DataName>Overview</DataName>
-                        <DataValue>{result.overview}</DataValue>
+                        <DataValue numberOfLines={3} ellipsSizeMode="middle">{result.overview}</DataValue>
                     </>
                 ) : null}
                 {loading ? (
-                    <ActivityIndicator style={{marginTop: 30}} color={"Wihte"} />
+                    <ActivityIndicator style={{marginTop: 30}} color={"white"} />
                 ) : null }
 
                 {result.spoken_languages ? (
@@ -179,10 +184,64 @@ export default ({openBrowser, result, loading, navigation}) => (
                     </>
                 ) : null}
 
+                {result.keyword.length > 0 ? (
+                    <>
+                        <DataName>Keywords</DataName>
+                        <View style={styles.keywords}>
+                            {result.keyword.map(item => (
+                                <View style={styles.keyword}>
+                                    <Text style={styles.keywordText}>
+                                        #{item.name}
+                                    </Text>
+                                </View>
 
+                            ))}
+                        </View>
 
+                    </>
+                ) : null}
 
+                {result.similar.length > 0 ? (
+                    <>
+                        <DataName>Similar Movie</DataName>
+                        <HorizontalSlider>
+                            {result.similar.map(video => (
+                                <SimilarPoster
+                                    key={video.id}
+                                    id={video.id}
+                                    poster={video.poster_path}
+
+                                />
+                            ))}
+                        </HorizontalSlider>
+                    </>
+                ) : null}
             </Data>
     </ScrollContainer>
 
 );
+const styles = StyleSheet.create({
+    keywords: {
+        flexDirection: 'row',
+        display: 'flex',
+        justifyContent: 'flex-start',
+        marginVertical: 4,
+        color: "white",
+
+    },
+    keyword: {
+        paddingHorizontal: 6,
+        paddingVertical: 2,
+        borderWidth: 1,
+        borderRadius: 14,
+        borderColor: '#ccc',
+        marginRight: 4,
+        marginBottom: 4,
+    },
+    keywordText: {
+        fontSize: 16,
+        opacity: 0.8,
+        color: "white"
+    }
+});
+

@@ -12,7 +12,6 @@ export default ({
     }
 }) => {
 
-    const [loading, setLoading] = useState(true);
     const [detail, setDetail] = useState({
         loading: true,
         result: {
@@ -23,16 +22,15 @@ export default ({
             overview,
             videos: {
                 results: []
+            },
+            similar: [],
+            keyword: {
+                keywords: []
             }
+
         }
     });
-    // const [movie, setMovie] = useState({
-    //     title,
-    //     backgroundImage,
-    //     poster,
-    //     overview,
-    //     votes
-    // });
+
 
     const getData = async() => {
 
@@ -40,7 +38,14 @@ export default ({
             ? await tvApi.Detail(id)
             : await movieApi.Detail(id)
 
-        // console.log("----------------------", await tvApi.Similar(id))
+        const [similar, similarError] = isTv
+            ? await tvApi.Similar(id)
+            : await movieApi.Similar(id)
+
+        const [keyword, keywordError] = isTv
+            ? await tvApi.Keywords(id)
+            : await movieApi.Keywords(id)
+
         setDetail({
             loading: false,
             result: {
@@ -49,25 +54,15 @@ export default ({
                 backgroundImage: getDetail.backdrop_path,
                 poster: getDetail.poster_path,
                 overview: getDetail.overview,
-                votes: getDetail.vote_average
+                votes: getDetail.vote_average,
+                similar: similar,
+                keyword: keyword.keywords
             }
         })
 
+        console.log("++++++++++++++++++++", similar.length)
+        console.log("-----------", keyword.keywords.length)
 
-        // if (isTv) {
-        //     const [getMovie, getMovieError] = await tvApi.Detail(id);
-        // } else {
-        //     const [getMovie, getMovieError] = await movieApi.Detail(id);
-        // }
-        // setMovie({
-        //     ...getMovie,
-        //     title: getMovie.title,
-        //     backgroundImage: getMovie.backdrop_path,
-        //     poster: getMovie.poster_path,
-        //     overview: getMovie.overview,
-        //     votes: getMovie.vote_average
-        // })
-        // console.log(getMovie)
 
     };
 
