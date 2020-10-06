@@ -5,14 +5,6 @@ import PropTypes from 'prop-types';
 import {theme} from '../constants';
 import {Text, Block} from '../components';
 
-// const Text = styled.Text`
-//   color: white;
-//   font-weight: bold;
-//   font-size: 19px;
-//   margin-bottom: 30px;
-//   margin-left: 10px;
-// `;
-
 const Title = ({title}) =>
     <Block marginBottom={20} marginLeft={10}>
         <Text bold style={styles.title}>

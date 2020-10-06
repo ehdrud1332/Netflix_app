@@ -60,10 +60,6 @@ export default ({
             }
         })
 
-        console.log("++++++++++++++++++++", similar.length)
-        console.log("-----------", keyword.keywords.length)
-
-
     };
 
     useEffect(() => {

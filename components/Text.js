@@ -4,7 +4,7 @@ import { Text, StyleSheet } from "react-native";
 
 import { theme } from "../constants";
 
-export default class Typography extends Component {
+export default class  Typography extends Component {
     render() {
         const {
             h1,

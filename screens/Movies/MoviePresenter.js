@@ -5,7 +5,6 @@ import {Dimensions, StyleSheet} from 'react-native';
 import Slide from '../../components/Movies/Slide';
 import Vertical from '../../components/Vertical';
 import Horizontal from "../../components/Horizontal";
-import {trimText} from "../../utils";
 import ScrollContainer from "../../components/ScrollContainer";
 import HorizontalSlider from "../../components/HorizontalSlider";
 import List from '../../components/List';
